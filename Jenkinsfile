@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Ramanhajy/ToDoList'
+                git branch: 'main', url: 'https://github.com/Ramanhajy/ToDoList'
             }
         }
 
