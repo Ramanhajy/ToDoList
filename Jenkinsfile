@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build('ramanismael/to-do-list')
+                    dockerImage = docker.build('ramanismael/to-do-list:latest')
                 }
             }
         }
@@ -26,8 +26,7 @@ pipeline {
                     script {
                         bat """
                             echo %PASSWORD% | docker login -u %USERNAME% --password-stdin
-                            docker push %USERNAME%/to-do-list
-                        """
+                            docker push %USERNAME%/to-do-list:latest
                     }
                 }
             }
